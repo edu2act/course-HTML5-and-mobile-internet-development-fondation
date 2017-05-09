@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FileList与file示例</title>
+</head>
+<body>
+	<script>
+		function ShowFileName()
+		{
+		    var file;
+		    //document.getElementById("file").files返回FileList文件列表对象
+		    for(var i=0;i<document.getElementById("file").files.length;i++)
+		    {
+		       //file对象为用户选择的单个文件
+		        file = document.getElementById("file").files[i];
+		        alert(file.name);
+		    }
+		}
+	</script>
+	选择文件：
+	<input type="file" id="file" multiple size="80"/>
+	<input type="button" onclick="ShowFileName();" value="文件上传"/> 
+</body>
+</html>

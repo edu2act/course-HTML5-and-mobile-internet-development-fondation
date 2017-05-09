@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script>
+		function getE(id){
+			return document.getElementById(id);
+		}
+		window.onload = function(){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+			}
+			else{
+				document.getElementById("tip").innerHTML = 
+				"您的浏览器版本过旧，建议使用最新版本谷歌浏览器。";
+			}
+		}
+		function showPosition(data){
+			getE("lon").innerHTML = ("经度："+data.coords.longitude);
+			getE("lat").innerHTML = ("纬度："+data.coords.latitude);
+			getE("accuracy").innerHTML = ("精确度："+data.coords.accuracy+"米");
+		}
+		function showError(error){
+			var errorDiv = document.getElementById("error");
+			switch(error.code){
+				case 1:
+					errorDiv.innerHTML="位置服务被拒绝"
+					break;
+				case 2:
+					errorDiv.innerHTML="暂时获取不到位置信息"
+					break;
+				case 3:
+					errorDiv.innerHTML="获取信息超时"
+					break;
+				case 0:
+					errorDiv.innerHTML="未知错误"
+					break;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div id="tip"></div>
+	<div id="lon"></div>
+	<div id="lat"></div>
+	<div id="accuracy"></div>
+	<div id="error"></div>
+</body>
+</html>

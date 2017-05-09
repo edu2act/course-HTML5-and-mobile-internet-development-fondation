@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<h1>简单Web留言本</h1>
+	<textarea id="memo" cols="60" rows="10"></textarea><br>
+	<input type="button" value="添加" onclick="saveStorage('memo');"/>
+	<input type="button" value="全部清除" onclick="clearStorage('msg');"/>
+	<hr/>
+	<p id="msg"></p>
+</body>
+<script type="text/javascript">
+	function saveStorage(id)
+	{
+	    var data = document.getElementById(id).value;
+	    var time = new Date().getTime();
+	    localStorage.setItem(time,data);
+	    alert("数据已保存。");
+	    loadStorage('msg');
+	}
+
+	function loadStorage(id)
+	{
+	    var result = '<table border="1">';
+	    for(var i = 0;i < localStorage.length;i++)
+	    {
+	        var key = localStorage.key(i);
+	        var value = localStorage.getItem(key);
+	        var date = new Date();
+	        date.setTime(key); //使用 setTime() 向 1970/01/01 添加毫秒，并显示新的日期和时间。
+	        var datestr = date.toGMTString();
+	        result += '<tr><td>' + value + '</td><td>' + datestr + '</td></tr>';
+	    }
+	    result += '</table>';
+	    var target = document.getElementById(id);
+	    target.innerHTML = result;
+	}
+
+	function clearStorage()
+	{
+	    localStorage.clear();
+	    alert("全部数据被清除。");
+	    loadStorage('msg');
+	}
+</script>
+</html>

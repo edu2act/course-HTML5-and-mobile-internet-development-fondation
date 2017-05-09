@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>fileReader方法示例</title>
+</head>
+<body>
+	<script>
+		var result=document.getElementById("result");
+		var file=document.getElementById("file");
+		if (typeof FileReader == 'undefined' )
+		{
+		   result.innerHTML = "<p>抱歉，你的浏览器不支持 FileReader</p>";
+		   file.setAttribute( 'disabled','disabled' );
+		}
+		function readAsText()
+		{
+		    var file = document.getElementById("file").files[0];
+		    var reader = new FileReader();
+		    reader.readAsText(file);		//将文件以文本形式进行读入页面
+		    reader.onload = function(f)
+		    {
+		        var result=document.getElementById("result");
+		        result.innerHTML=this.result;	//在页面上显示读入文本
+		    }
+		}
+	</script>
+	<p>
+    	<label>请选择一个文件：</label>
+    	<input type="file" id="file" />
+    	<input type="button" value="读取文本文件" onclick="readAsText()"/>
+	</p>
+	<div name="result" id="result">
+      	<!-- 这里用来显示读取结果 -->
+	</div>
+</body>
+</html>
