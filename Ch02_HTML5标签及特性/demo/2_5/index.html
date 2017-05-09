@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>音乐播放器</title> 
+	<meta charset="utf-8"> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+	$(function(){
+		//播放器样式设置
+		playwidth = $(window).width();
+		outerwidth = playwidth*0.9;
+		$("#outer").css('width',outerwidth);
+		$("#rate").css('width',outerwidth*0.6);
+		$("#ratetime").css('width',outerwidth*0.1);
+		$("#volume").css('width',outerwidth*0.1);
+		//获得audio元素
+		var audio = document.getElementById("audios");
+		$('#content a').click(
+			function(){
+				//获得要播放的歌曲地址
+				hrefs=$(this).attr('href');
+				inner = $(this).html();
+				//innert = this.innerHTML;
+				//判断动作
+				if(inner=='播放'){
+					$("#content a").html("播放");
+					$(this).html("停止");
+					//判断是否切换了歌曲
+					if(audio.src.indexOf(hrefs) == -1){
+						audio.src = hrefs;
+					}
+					audio.play();
+					$("#playp").css('background-position','-70px -25px');
+					var timer = setInterval(function(){
+					//获取歌曲当前播放时间
+						currenttime = audio.currentTime;
+						alltime = audio.duration;
+						if(currenttime==alltime){
+							clearInterval(timer);
+						}else{
+						  $("#ratetime").html((currenttime/60).toFixed(2)+ "/" +(alltime/60).toFixed(2));
+						  rates =(currenttime/60).toFixed(4)/(alltime/60).toFixed(4);
+						  $("#ratemidtop").css("width",parseInt(outerwidth*0.5*rates));
+						}
+					},1000);
+				}
+				if(inner=='停止'){
+					$("#content a").html("播放");
+					audio.pause();
+					$("#playp").css('background-position','-50px -25px');
+				}
+				return false;
+			}
+		);
+		$("#content").css('height',$(window).height()*0.75);
+
+	});
+	</script>
+	<style>
+	#outer{
+		margin: 0 auto;
+		/*left:-10px;*/
+		height:30px;
+		border:1px solid #FFEE22;
+		background-color:#000000;
+	}
+	#control,#rate,#ratetime,#volume{
+		float:left;
+		margin-left:1px;
+		height:30px;
+		border:0px solid #FFEEAA;
+	}
+	#control{
+		width:80px;
+	}
+	#prv,#playp,#next,#pausep{
+		float:left;
+		margin-left:1px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		background-image:url(images/audioplay.png);
+		background-repeat:no-repeat;
+		cursor:point;
+	}
+	#prv{
+		width:25px;
+		background-position:-26px -25px;
+	}
+	#playp{
+		background-position:-50px -24px;
+	}
+	.ply{
+		width:20px;
+	}
+	#pausep{
+		background-position:-70px -24px;
+	}
+	#next{
+		width:20px;
+		background-position:-26px 3px;
+	}
+	#rate{
+		background-color:#000000;
+	}
+	#ratetime{
+		text-align:center;
+		line-height:30px;
+		color:#ffffff;
+		font-size:12px;
+	}
+	#ratetop,#ratebom{
+		height:14px;
+	}
+	#ratemid{
+		height:4px;
+		background-color:#FFEEEE;
+	}
+	#ratemidtop{
+		position:relative;
+		z-index:10px;
+		width:1px;
+		height:5px;
+		top:-5px;
+		background-color:#009ACD;
+		border-right:2px solid #FF1122;
+	}
+	</style>
+</head> 
+<body> 
+	<div data-role="page">
+	  	<div data-role="header" data-position="fullscreen">
+	  		<div data-role="navbar">
+			    <ul>
+			      <li><a href="#" class="ui-btn-active">在线音乐</a></li>
+			      <li><a href="#">本地音乐</a></li>
+			    </ul>
+	  		</div>
+	  	</div><!-- /header -->
+	  	<div data-role="content" id="content" >
+			<div>
+				<div style="float:left;width:80%;height:30px;font:12px;">千千阙歌</div>
+				<div style="float:left;width:20%;height:30px;font:12px;">
+					<a href='music/02.mp3' id='play'>播放</a>
+				</div>
+			</div>
+			<div>
+				<div style="float:left;width:80%;height:30px;font:12px;">			思念人之屋
+				</div>
+				<div style="float:left;width:20%;height:30px;font:12px;">
+					<a href='music/01.mp3' id='play'>播放</a>
+				</div>
+			</div>
+	  	</div><!-- /content -->
+	  	<div data-role="footer" class="ui-bar">
+			<audio src="music/02.mp3"   id='audios' ></audio>
+			<!-- 播放器外边框 -->
+			<div id="outer">
+				<!-- 播放器控制区域: 上一首 下一首 播放 暂停 -->
+				<div id="control">
+					<div id="prv">&nbsp</div>
+					<div id="playp" class='ply'></div>
+					<div id="next">&nbsp</div>
+				</div>
+				<!-- 播放器控制区域结束 -->
+				<!-- 播放进度-->
+				<div id="rate">
+					<div id="ratetop"></div>
+					<div id="ratemid"></div>
+					<div id="ratemidtop">&nbsp</div>
+					<div id="ratebom"></div>
+				</div>
+				<!-- 播放进度结束-->
+				<div id="ratetime">
+				</div>
+				<!-- 音量-->
+				<div id="volume"></div>
+				<!-- 音量结束-->
+			</div>
+	  	</div>
+	</div>
+</body>
+</html>

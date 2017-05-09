@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script>
+		//遍历对象的全部属性
+		var obj = new Object();
+		obj.output = "Something output";
+		obj.doOutput = function(){
+			console.log("output in function:"+this.output);
+		}
+
+		for(var i in obj){
+			console.log(i);
+			if(typeof obj[i] == "function")
+			{
+				obj[i]();
+			}
+			else if(typeof obj[i] == "string")
+			{
+				console.log(obj[i]);
+			}
+		}
+	</script>
+</head>
+
+<body>
+</body>
+</html>
