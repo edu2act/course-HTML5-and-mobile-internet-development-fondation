@@ -7,6 +7,7 @@
 ## 课程大纲
 
 |HTML|CSS|Bootstrap|
+|----|----|----|
 |01. HTML5简介|11. CSS3概述及选择器|19. Bootstrap概述|
 |02. HTML5新标签及特性|12. CSS3 Web排版|20. Bootstrap栅格系统|
 |03. HTML5表单|13. CSS3盒模型|21. Bootstrap全局CSS|
