@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>bootstrap-tooltip使用实例</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		.myli li{
+	  	height:80px;
+	  	margin-left:50px
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+		<h1>Tooltip位置显示不同方向</h1>
+		<ul class="myli tooltip-directions">
+			<li><a href="#" class="btn btn-info" rel="tooltip" data-original-title="Tooltip on top" data-placement="top">Tooltip on top</a></li>
+			<li><a href="#" class="btn btn-info" rel="tooltip" data-original-title="Tooltip on right" data-placement="right">Tooltip on right</a></li>
+			<li><a href="#" class="btn btn-info" rel="tooltip" data-original-title="Tooltip on bottom" data-placement="bottom">Tooltip on bottom</a></li>
+			<li><a href="#" class="btn btn-info" rel="tooltip" data-original-title="Tooltip on left" data-placement="left">Tooltip on left</a></li>
+		</ul>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script>
+	  $(function () {
+	    $('.tooltip-directions').tooltip({
+	     selector: "a[rel=tooltip]"
+	    });
+	  });
+	</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>对话框</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link rel="stylesheet" href="css/bootstrap.min.css">	
+  </head>
+  <body>
+  <div class="container">
+    <p style="height:100px"></p>	    
+    <a id="a2" class="btn btn-lg btn-danger" data-toggle="popover"  data-placement="right" data-original-title="按钮含义" data-content="这个按钮主要是演示对话框效果的。这个按钮主要是演示对话框效果的。这个按钮主要是演示对话框效果的。这个按钮主要是演示对话框效果的。" data-trigger="focus"     title=""  href="#">
+             请点击切换弹出窗口
+    </a>
+  </div>
+  <script src="js/jquery.js"></script>    
+  <script src="js/bootstrap.min.js"></script>  
+  <script type="text/javascript">
+      $("#a2").popover();
+  </script>
+  </body>
+</html>

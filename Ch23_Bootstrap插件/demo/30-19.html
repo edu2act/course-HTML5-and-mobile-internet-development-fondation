@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>对话框</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link rel="stylesheet" href="css/bootstrap.min.css">	
+  </head>
+  <body>
+  <div class="container">
+    <p style="height:100px"></p>	    
+    <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+  		加载状态
+		</button>
+  </div>
+  <script src="js/jquery.js"></script>    
+  <script src="js/bootstrap.min.js"></script>  
+  <script>
+	  $('#myButton').on('click', function () {
+	    $(this).button('loading') 
+	  })
+	</script>
+  </body>
+</html>

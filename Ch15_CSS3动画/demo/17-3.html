@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>使用Transitions功能实现多个属性的平滑过渡</title>
+	<style type="text/css">
+		div{
+	        background-color: #ffff00;
+	        color: #000000;
+	        width: 300px;
+	        transition:  background-color 1s linear, color 1s linear, width 1s linear, transform 1s linear;
+		}
+		div:hover{
+	        background-color: #003366;
+	        color: #ffffff;
+	        width: 400px;
+	        transform: rotate(30deg);
+		}
+	</style>
+</head>
+
+<body>
+	<div>示例文字</div>
+</body>
+</html>
