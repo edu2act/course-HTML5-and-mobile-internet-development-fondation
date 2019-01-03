@@ -6,17 +6,30 @@
 
 ## 课程大纲
 
-|HTML|CSS|Bootstrap|
-|----|----|----|
-|01. HTML5简介|11. CSS3概述及选择器|19. Bootstrap概述|
-|02. HTML5新标签及特性|12. CSS3 Web排版|20. Bootstrap栅格系统|
-|03. HTML5表单|13. CSS3盒模型|21. Bootstrap全局CSS|
-|04. JavaScript高级|14. CSS3变形|22. Bootstrap组件|
-|05. HTML5地理位置定位|15. CSS3动画|23. Bootstrap插件|
-|06. HTML5离线应用|16. CSS3布局| |
-|07. HTML5 Web存储|17. Media Queries| |
-|08. HTML5文件操作|18. CSS3用户界面| |
-|09. HTML5拖放| |
-|10. HTML5 画布| |
+1. HTML5简介
+2. HTML5标签及特性
+3. 表单
+4. 地理位置定位
+5. 离线应用
+6. Web存储
+7. 数据通信
+8. 文件操作
+9. 拖放
+10. 画布（一）
+11. 画布（二）
+12. 画布（三）
+13. CSS3概述及选择器
+14. 文本、字体与颜色
+15. 背景与边框
+16. 渐变与变形处理
+17. CSS3动画
+18. CSS3多列布局
+19. CSS3盒布局
+20. CSS3媒体查询
+21. Bootstrap概览及栅格系统
+22. Bootstrap全局CSS（一）
+23. Bootstrap全局CSS（二）
+24. Bootstrap组件
+25. Bootstrap插件
 
 

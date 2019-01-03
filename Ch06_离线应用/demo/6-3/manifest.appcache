@@ -1,9 +1,0 @@
-CACHE MANIFEST
-5-3.html
-style.css
-
-NETWORK:
-app.js
-
-FALLBACK:
-login.html info.html
