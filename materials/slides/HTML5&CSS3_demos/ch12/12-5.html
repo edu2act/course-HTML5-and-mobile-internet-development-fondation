@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid magenta;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="1024" height="500">
+
+</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var image = new Image();
+        image.src = 'images/music.png';
+
+        image.onload = function(){
+            var img = context.createPattern(image, 'repeat');
+            context.fillStyle = img;
+            context.strokeStyle = "orange";
+            context.lineWidth = 2;
+
+            context.fillRect(0, 0, 1024, 300);
+            context.strokeRect(0, 0, 1024, 300);
+        };
+    }
+</Script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="900">
+
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.strokeRect(10, 10, 100, 100);
+
+        context.strokeStyle = 'red';
+        context.scale(2, 2);
+        context.strokeRect(10, 10, 100, 100);//定位也会缩放
+
+        context.strokeStyle = 'blue';
+        context.scale(2, 2);
+        context.strokeRect(10, 10, 100, 100);//定位也会缩放
+    }
+</script>
+</body>
+</html>
+

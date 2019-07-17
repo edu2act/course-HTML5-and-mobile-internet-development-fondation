@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>canvas位图像素处理</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas1" width="500" height="300"></canvas>
+
+    <button onclick="draw()">负片滤镜</button>
+    <button onclick="draw1()">黑白滤镜</button>
+    <button onclick="draw2()">浮雕滤镜</button>
+    <br/>
+
+    <canvas id="canvas2" width="500" height="300"></canvas>
+
+    <script>
+        var canvas1 = document.getElementById('canvas1');
+        var context1 = canvas1.getContext('2d');
+
+        var img = new Image();
+        img.src = 'images/curved-road.png';
+        img.onload = function() {
+            context1.drawImage(img, 0, 0, 500, 300);
+        };
+
+        var canvas2 = document.getElementById('canvas2');
+        var context2 = canvas2.getContext('2d');
+
+        //反色滤镜
+        function draw() {
+            context2.clearRect(0, 0, 500, 300);
+
+            imageData = context1.getImageData(0, 0, 500, 300);
+            for (var i = 0; i < imageData.data.length; i += 4) {
+                imageData.data[i] = 255 - imageData.data[i];
+                imageData.data[i + 1] = 255 - imageData.data[i + 1];
+                imageData.data[i + 2] = 255 - imageData.data[i + 2];
+            }
+            context2.putImageData(imageData, 0, 0);
+        }
+
+        //黑白滤镜
+        function draw1() {
+            context2.clearRect(0, 0, 500, 300);
+
+            imageData = context1.getImageData(0, 0, 500, 300);
+            console.log(imageData);
+            for (var i = 0; i < imageData.data.length; i += 4) {
+                var average = (imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2]) / 3;
+                imageData.data[i] = average;
+                imageData.data[i + 1] = average;
+                imageData.data[i + 2] = average;
+            }
+            context2.putImageData(imageData, 0, 0);
+        }
+
+
+        //浮雕滤镜
+        function draw2() {
+            context2.clearRect(0, 0, 500, 300);
+
+            imageData = context1.getImageData(0, 0, 500, 300);
+            data = imageData.data;
+            width = imageData.width;
+            length = data.length;
+            for (i = 0; i < length; i++) {
+                if (i <= length - width * 4) {
+                    if ((i + 1) % 4 !== 0) {
+                        if ((i + 4) % (width * 4) == 0) {
+                            data[i] = data[i - 4];
+                            data[i + 1] = data[i - 3];
+                            data[i + 2] = data[i - 2];
+                            data[i + 3] = data[i - 1];
+                            i += 4;
+                        } else {
+                            data[i] = 255 / 2 + 2 * data[i] - data[i + 4] - data[i + width * 4];
+                        }
+                    }
+                } 
+                else{
+                    if ((i + 1) % 4 !== 0) {
+                        data[i] = data[i - width * 4];
+                    }
+                }
+            }
+
+            context2.putImageData(imageData, 0, 0);
+        }
+    </script>
+</body>
+
+</html>

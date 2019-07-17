@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>linear-gradient</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			margin-top: 10px;
+			border: 1px solid #ddd;
+		}
+		.test {
+			background: radial-gradient(rgb(255,243,71), rgb(244,180,208), rgb(231,67,136));
+		}
+		.test2 {
+			background: radial-gradient(rgb(255,243,71) 5%, rgb(244,180,208) 25%, rgb(231,67,136) 50%);
+		}
+		.test3{
+		    background-image:repeating-radial-gradient(#ace, #ace 5px, #f96 5px, #f96 10px);
+		}
+	</style>
+</head>
+<body>
+	<div class="test"></div>
+	<div class="test2"></div>
+	<div class="test3"></div>
+</body>
+</html>
+			

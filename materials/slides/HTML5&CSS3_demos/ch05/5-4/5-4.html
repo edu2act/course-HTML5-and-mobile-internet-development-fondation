@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html manifest="./manifest.appcache">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="../img/snowflake.png" />
+	<title>离线应用浏览器支持检测</title>
+	<script>
+		window.onload = function(){
+			if(window.applicationCache){
+				//离线操作API
+			}
+			else{
+				document.getElementById("info").innerHTML = 
+				"你的浏览器已经out了";
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<p id="info"></p>
+</body>
+</html>

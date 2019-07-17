@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid #aaa;
+            margin: 50px auto;
+            background: #eee；
+        }
+
+        video {
+            display: block;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+	<video id="video" controls>
+	    <source src="images/video.mp4" type='video/mp4'>
+	</video>
+	
+	<canvas id="canvas" width="500" height="300"></canvas>
+<script>
+    var video = document.getElementById("video");
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    var t;
+    video.addEventListener('play', function () {
+        t = setInterval(function () {
+            context.drawImage(video, 20, 0)
+        }, 20);
+    });
+    video.addEventListener('pause', function () {/*监听停止事件*/
+        clearInterval(t);
+    });
+    video.addEventListener('ended', function () {/*监听结束事件*/
+        clearInterval(t);
+    });
+</script>
+</body>
+</html>

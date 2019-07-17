@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style>
+        #myCanvas2 {
+            background: #FFEFAA;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="myCanvas" style="border:1px solid;" width="400" height="400">
+	</canvas>
+	<canvas id="myCanvas2" style="border:1px solid;" width="400" height="400">
+	</canvas>
+	
+	<!--绘制同心圆-->
+	<script type="text/javascript">
+		var c=document.getElementById("myCanvas");
+		var context=c.getContext("2d");
+		for(var i=0; i<=8; i++){
+			context.strokeStyle="#32CD32";
+			context.beginPath();
+			context.arc(0,400,i*50,0,1.5*Math.PI,true);
+			//context.closePath();
+			context.stroke();
+		}
+	</script>
+	
+	<!--绘制八卦-->
+	<script type="text/javascript">
+		var c = document.getElementById("myCanvas2");
+		var ctx = c.getContext("2d");
+
+		//绘制白色的半圆
+		ctx.beginPath();
+		ctx.arc(200,200,80,1.5*Math.PI,0.5*Math.PI);
+		ctx.fillStyle="white";
+		ctx.closePath();
+		ctx.fill();
+
+		//绘制黑色的半圆
+		ctx.beginPath();
+		ctx.arc(200,200,80,1.5*Math.PI,0.5*Math.PI,true);
+		ctx.fillStyle="black";
+		ctx.closePath();
+		ctx.fill();
+
+		//绘制白色的小圆
+		ctx.beginPath();
+		ctx.arc(200,160,40,0,2*Math.PI);
+		ctx.fillStyle="white";
+		ctx.closePath();
+		ctx.fill();
+
+		//绘制黑色的小圆
+		ctx.beginPath();
+		ctx.arc(200,240,40,0,2*Math.PI);
+		ctx.fillStyle="black";
+		ctx.closePath();
+		ctx.fill();
+
+		//绘制黑色的小圆点
+		ctx.beginPath();
+		ctx.arc(200,160,5,0,2*Math.PI);
+		ctx.fillStyle="black";
+		ctx.closePath();
+		ctx.fill();
+
+		//绘制白色的小圆点
+		ctx.beginPath();
+		ctx.arc(200,240,5,0,2*Math.PI);
+		ctx.fillStyle="white";
+		ctx.closePath();
+		ctx.fill();
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas1"  style="border: 1px solid #aaa; display: block; margin:50px auto;">
+			
+		</canvas>
+		<script>
+			window.onload = function(){
+				var canvas1 = document.getElementById("canvas1");
+				var context1 = canvas1.getContext("2d");
+				canvas1.width = 800;
+				canvas1.height = 800;
+				
+				context1.fillStyle = "black";
+				context1.fillRect(0,0,canvas1.width,canvas1.height);
+				
+				for(var i=0;i<100;i++){
+					var r = Math.random()*10+10;
+					var x = Math.random()*canvas1.width;
+					var y = Math.random()*canvas1.height;
+					var a = Math.random()*360;
+					drawStar(context1,r/2,r,x,y,a);
+				}
+			}
+			
+			function drawStar(cxt,r,R,x,y,rot){
+				cxt.beginPath();
+				for(var i=0;i<5;i++){
+					cxt.lineTo(Math.cos((18+72*i-rot)/180*Math.PI)*R+x,
+					-Math.sin((18+72*i-rot)/180*Math.PI)*R+y);
+					cxt.lineTo(Math.cos((54+72*i-rot)/180*Math.PI)*r+x,
+					-Math.sin((54+72*i-rot)/180*Math.PI)*r+y);
+				}
+				cxt.closePath();
+				
+				cxt.fillStyle = "#fb3";
+				cxt.strokeStyle = "#fd5";
+				cxt.lineWidth = 3;
+				cxt.lineJoin = "round";
+				
+				cxt.fill();
+				cxt.stroke();
+			}
+		</script>
+	</body>
+</html>

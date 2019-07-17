@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>fileReader方法示例</title>
+	<link rel="icon" href="img/snowflake.png" />
+</head>
+<body>
+	<script>
+		var result=document.getElementById("result");
+		var file=document.getElementById("file");
+		if (typeof FileReader == 'undefined' )
+		{
+		   result.innerHTML = "<p>抱歉，你的浏览器不支持 FileReader</p>";
+		   file.setAttribute( 'disabled','disabled' );
+		}
+		function readAsText()
+		{
+		    var file = document.getElementById("file").files[0];
+		    var reader = new FileReader();
+		    reader.readAsText(file);
+		    reader.onload = function(f)
+		    {
+		        var result=document.getElementById("result");
+		        result.innerHTML=this.result;
+		    }
+		}
+	</script>
+	<p>
+    	<label>请选择一个文件：</label>
+    	<input type="file" id="file" />
+    	<input type="button" value="读取文本文件" onclick="readAsText()"/>
+	</p>
+	<div name="result" id="result">
+      	<!-- 这里用来显示读取结果 -->
+	</div>
+</body>
+</html>

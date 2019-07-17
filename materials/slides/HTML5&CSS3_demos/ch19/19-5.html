@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>19-5</title>
+	<style type="text/css">
+		#container{
+			display: -moz-box;
+			display: -webkit-box;
+			-webkit-box-orient: horizontal;
+		}
+		#left-sidebar{
+		    -moz-box-ordinal-group: 2;
+		    -webkit-box-ordinal-group: 2;
+			width: 200px;
+			padding: 20px;
+			background-color: orange;
+		}
+		#contents{
+		    -moz-box-ordinal-group: 3;
+		    -webkit-box-ordinal-group: 3;    
+			-moz-box-flex:1;
+		    -webkit-box-flex:1;
+			padding: 20px;
+			background-color: yellow;
+		}
+		#right-sidebar{
+		    -moz-box-ordinal-group: 1;
+		    -webkit-box-ordinal-group: 1;
+			width: 200px;
+			padding: 20px;
+			background-color: limegreen;
+		}
+	</style> 
+</head>
+<body>
+	<div id="container">
+	    <div id="left-sidebar">
+	        <h2>左侧边栏</h2>
+			<ul>
+				<li><a href="#">新闻</a></li>
+				<li><a href="#">简介</a></li>
+				<li><a href="#">产品</a></li>
+				<li><a href="#">荣誉</a></li>
+				<li><a href="#">关于</a></li>
+			</ul>
+	    </div>
+	    <div id="contents">
+	        <h2>内容</h2>
+			<p>示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字。示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字。示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字。示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字示例文字。</p>
+		</div>
+	    <div id="right-sidebar">
+	        <h2>友情链接</h2>
+			<ul>
+				<li><a href="#">师范大学</a></li>
+				<li><a href="#">科技大学</a></li>
+				<li><a href="#">医科大学</a></li>
+			</ul>
+	    </div>
+	</div>
+</body>
+</html>

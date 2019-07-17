@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="700">
+	
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var img = new Image();
+        img.src = "images/cake.jpg";  /*1024*682*/
+        img.onload = function() {
+            context.drawImage(img, 0, 0, 200, 200, 0, 0, 500, 500);
+        }
+    }
+</Script>
+</body>
+</html>

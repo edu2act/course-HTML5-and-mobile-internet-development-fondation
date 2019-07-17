@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="500">
+	
+	</canvas>
+	<script>
+	    window.onload = function () {
+	        var canvas = document.getElementById("canvas");
+	        var context = canvas.getContext("2d");
+	
+	        context.fillStyle = "blue";
+	        context.fillRect(100, 100, 300, 200);
+	        context.fillStyle = "rgba(255,0,0,1)";
+	        context.fillRect(200, 200, 300, 200);
+	
+	        context.beginPath();
+	        context.globalAlpha = 0.5;
+	        context.fillStyle = "blue";
+	        context.fillRect(550, 100, 300, 200);
+	        context.fillStyle = "rgba(255,0,0,0.5)";
+	        context.fillRect(650, 200, 300, 200);
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<style> 
+		div
+		{
+			border:10px solid black;
+			padding:35px;
+			background-image:url(img/smiley.gif);
+			background-repeat:no-repeat;
+			background-position:0px 0px;
+		}
+		#div1
+		{
+			/*background-origin:border-box;*/
+		}
+		#div2
+		{
+			background-origin:content-box;
+		}
+	</style>
+</head>
+<body>
+	<p>背景图像边界框的相对位置：</p>
+	<div id="div1">
+		CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。
+		CSS 在这方面的能力远远在 HTML 之上。
+		CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。
+		CSS 在这方面的能力远远在 HTML 之上。
+	</div>
+	
+	<p>背景图像的相对位置的内容框：</p>
+	<div id="div2">
+		CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。
+		CSS 在这方面的能力远远在 HTML 之上。
+		CSS 允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果。
+		CSS 在这方面的能力远远在 HTML 之上。
+	</div>
+</body>
+</html>

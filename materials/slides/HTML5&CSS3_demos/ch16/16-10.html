@@ -1,0 +1,80 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="utf-8" />
+	<title></title>
+	<style type="text/css">
+		body { background:#fff url(img/bg3.JPG); }
+		ul.polaroids li { display: inline; }
+		ul.polaroids a {
+		    background: #fff;
+		    display: inline;
+		    float: left;
+		    margin: 0 0 27px 30px;
+		    width: auto;
+		    padding: 10px 10px 15px;
+		    text-align: center;
+		    font-family: "Marker Felt", sans-serif;
+		    text-decoration: none;
+		    color: #333;
+		    font-size: 18px;
+		    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
+		    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
+		    -webkit-transform: rotate(-2deg);
+		    -webkit-transition: -webkit-transform .15s linear;
+		    -moz-transform: rotate(-2deg);
+		}
+		ul.polaroids img {
+		    display: block;
+		    height: 100px;
+		    margin-bottom: 12px;
+		}
+		ul.polaroids a:after { content: attr(title); }
+		ul.polaroids li:nth-child(even) a {
+		    -webkit-transform: rotate(5deg);
+		    -moz-transform: rotate(5deg);
+		}
+		ul.polaroids li:nth-child(2n) a {
+		    position: relative;
+		    top: -5px;
+		    -webkit-transform: none;    
+		    -moz-transform: none;
+		}
+		ul.polaroids li:nth-child(3n) a {
+		    position: relative;
+		    right: 5px;
+		    -webkit-transform: rotate(-10deg);    
+		    -moz-transform: rotate(-10deg);
+		}
+		ul.polaroids li:nth-child(4n) a {
+		    position: relative;
+		    right: 5px;
+		    top: 8px;
+		}
+		ul.polaroids li:nth-child(5n) a {
+		    position: relative;
+		    left: -5px;
+		    top: 3px;
+		}
+		ul.polaroids li a:hover {
+		    -webkit-transform: scale(1.25);
+		    -moz-transform: scale(1.25);
+		    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .5);
+		    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, .5);
+		    position: relative;
+		    z-index: 5;
+		}
+	</style>
+</head>
+<body>
+	<ul class="polaroids">
+	    <li> <a href="1" title="相识"> <img src="img/11.jpg" alt="相识" /> </a> </li>
+	    <li> <a href="2" title="凝视"> <img src="img/22.jpg" alt="凝视" /> </a> </li>
+	    <li> <a href="3" title="甜睡"> <img src="img/33.jpg" alt="甜睡" /> </a> </li>
+	    <li> <a href="4" title="逗乐"> <img src="img/44.jpg" alt="逗乐" /> </a> </li>
+	    <li> <a href="5" title="奔跑"> <img src="img/55.jpg" alt="奔跑" /> </a> </li>
+	    <li> <a href="6" title="漠视"> <img src="img/66.jpg" alt="漠视" /> </a> </li>
+	    
+	</ul>
+</body>
+</html>

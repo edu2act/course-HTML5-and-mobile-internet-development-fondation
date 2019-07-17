@@ -1,0 +1,35 @@
+<html>
+	<head></head>
+	<body>
+		<div style="text-align: center;">
+    		<br/><br/><br/>
+    		<canvas id="myCanvas" width="300" height="300" style="border: 1px solid #fff123"></canvas>
+		</div>
+
+	<script>
+    window.onload=function () {
+        var cans = document.getElementById("myCanvas");
+        var ctx = cans.getContext("2d");
+        var x=0,y=0;
+
+        (function frame() {
+            window.requestAnimationFrame(frame);
+
+            //先清除，再次绘制
+            ctx.clearRect(0,0,cans.width,cans.height);
+
+            ctx.beginPath();
+            ctx.arc(x,y,30,0,360*Math.PI/180);
+            ctx.closePath();
+
+            ctx.fillStyle=(x<150) ? "rgba(255,155,250,0.5)" : "rgba(95,211,255,0.5)";
+
+            ctx.fill();
+
+            x+=1;
+            y+=1;
+        })()
+    }
+	</script>
+</body>
+</html>

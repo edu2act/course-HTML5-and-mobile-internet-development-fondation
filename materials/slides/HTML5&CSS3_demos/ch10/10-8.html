@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="600" height="600"></canvas>
+<script>
+    //创建绘图容器
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    //状态设置
+
+    context.beginPath();//第一条路径可省略
+    context.moveTo(100, 100);
+    context.lineTo(100, 400);
+    context.lineTo(400, 400);
+    context.lineTo(100, 100);
+
+    context.lineWidth = 5;
+    context.strokeStyle = "red";//设置了strokeStyle之后，所有的绘制描边都会采用这个色。
+                                // 如果只想修改一个对象的颜色，只能重新设置strokeStyle的属性值
+    context.closePath();//第一条路径可省略
+    context.stroke();
+
+
+    context.beginPath();//成对出现
+    context.moveTo(200, 100);
+    context.lineTo(500, 400);
+    context.strokeStyle = "blue";//重新设置strokeStyle的属性值
+    context.closePath();//成对出现
+    context.stroke();
+
+</script>
+</body>
+</html>

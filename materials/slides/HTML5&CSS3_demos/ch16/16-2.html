@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>translate()函数</title>
+	<style type="text/css">
+		.test ul { list-style:none; }
+		.test li {
+		    float:left;
+		    width:100px;
+		    background:#CCC;
+		    margin-left:3px;
+		    line-height:30px;
+		}
+		.test a {
+		    display:block;
+		    text-align:center;
+		    height:30px;
+		}
+		.test a:link {
+		    color:#666;
+		    background:url(img/icon1.jpg) #CCC no-repeat 5px 12px;
+		    text-decoration:none;
+		}
+		.test a:visited {
+		    color:#666;
+		    text-decoration:underline;
+		}
+		.test a:hover {
+		    color:#FFF;
+		    font-weight:bold;
+		    text-decoration:none;
+		    background:url(img/icon2.jpg) #F00 no-repeat 5px 12px;
+		    /*transform: translate(-4px,-4px);*/
+		    -moz-transform: translate(-4px, -4px);
+		    -webkit-transform: scale(1.5);
+		    -o-transform: translate(-4px, -4px);
+		}
+	</style>
+</head>
+
+<body>
+<div class="test">
+    <ul>
+        <li><a href="1">首页</a></li>
+        <li><a href="2">新闻</a></li>
+        <li><a href="3">论坛</a></li>
+        <li><a href="4">博客</a></li>
+        <li><a href="5">团购</a></li>
+        <li><a href="6">微博</a></li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>storage练习</title>
+    <link rel="icon" href="../img/snowflake.png" />
+    <style>
+        fieldset {
+            width: 600px;
+            margin: 30px auto;
+        }
+        
+        legend {
+            color: red;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>数据操作</legend>
+        <h2>添加指定数据：</h2> key:
+        <input type="text" id="key"> value:
+        <input type="text" id="value">
+        <button id="add">添加</button>
+        <br/>
+        <h2>读取指定数据：</h2> key:
+        <input type="text" id="readkey"> value:
+        <input type="text" id="readValue">
+        <button id="read">读取</button>
+        <br/>
+        <h2>删除指定数据：</h2> key:
+        <input type="text" id="removeKey">
+        <button id="remove">删除</button>
+        <br/>
+        <h2>删除所有数据：</h2>
+        <button id="removeAll">删除全部</button>
+    </fieldset>
+    <script>
+        //添加数据
+        var key = document.getElementById('key');
+        var value = document.getElementById('value');
+        var add = document.getElementById('add');
+        add.onclick = function() {
+            localStorage.setItem(key.value, value.value);
+        }
+
+        //读取指定数据
+        var readkey = document.getElementById('readkey');
+        var readValue = document.getElementById('readValue');
+        var read = document.getElementById('read');
+        read.onclick = function() {
+            readValue.value = localStorage.getItem(readkey.value);
+        }
+
+        //删除指定数据
+        var remove = document.getElementById('remove');
+        var removeKey = document.getElementById('removeKey');
+        remove.onclick = function() {
+            localStorage.removeItem(removeKey.value);
+        }
+
+        //删除所有数据
+        var removeAll = document.getElementById('removeAll');
+        removeAll.onclick = function() {
+            localStorage.clear();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>linear-gradient</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			margin-top: 10px;
+			border: 1px solid #ddd;
+		}
+		.test {
+			background: linear-gradient(#ace, #f96);
+		}
+		.test2 {
+			background: linear-gradient(#ace, #f96 50%, #fff);
+		}
+		.test3 {
+			background: linear-gradient(0deg, #ace 20%, #f96 50%, #fff 80%);
+		}
+		.test4 {
+			background: linear-gradient(45deg, #ace, #f96 50%, #fff);
+		}
+		.test5 {
+			background: linear-gradient(to top right, #ace, #f96 50%, #fff);
+		}
+		.test6{
+		    background-image:linear-gradient(to left, red, #f96, yellow, green, #ace); 
+		}
+	</style>
+</head>
+<body>
+	<div class="test"></div>
+	<div class="test2"></div>
+	<div class="test3"></div>
+	<div class="test4"></div>
+	<div class="test5"></div>
+	<div class="test6"></div>
+</body>
+</html>
+			

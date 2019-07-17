@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="500">
+	</canvas>
+	<script>
+        var c = document.getElementById("canvas");
+        var context = c.getContext("2d");
+
+        for(var i=0; i<10; i++){
+            context.beginPath();
+            context.arc(50+100*i,60,40,0,2*Math.PI*(i+1)/10);
+            context.closePath();
+            context.stroke();
+        }
+	</script>
+</body>
+</html>

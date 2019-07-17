@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>6-2 remove item from localStorage</title>
+	<link rel="icon" href="../img/snowflake.png" />
+	<script>
+		window.onload = function(){
+			document.getElementById("addButton").onclick = function(){
+				var text = document.getElementById("text").value;
+				localStorage.setItem("sticky", text);
+				console.log(localStorage.getItem("sticky"));
+			}
+			
+			document.getElementById("removeButton").onclick = function(){
+				localStorage.removeItem("sticky");
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<input type="text" value="" id="text" />
+	<input type="button" value="添加" id="addButton" />
+	<input type="button" value="删除" id="removeButton" />
+</body>
+</html>

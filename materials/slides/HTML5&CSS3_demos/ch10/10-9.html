@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid #aaa;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+<script>
+    window.onload = function () {
+        var tangram = [
+            {p: [{x: 0, y: 0}, {x: 800, y: 0}, {x: 400, y: 400}], color: "#caff67"},
+            {p: [{x: 0, y: 0}, {x: 400, y: 400}, {x: 0, y: 800}], color: "#67becf"},
+            {p: [{x: 800, y: 0}, {x: 800, y: 400}, {x: 600, y: 600}, {x: 600, y: 200}], color: "#ef3d61"},
+            {p: [{x: 600, y: 200}, {x: 600, y: 600}, {x: 400, y: 400}], color: "#f9f51a"},
+            {p: [{x: 400, y: 400}, {x: 600, y: 600}, {x: 400, y: 800}, {x: 200, y: 600}], color: "#a594c0"},
+            {p: [{x: 200, y: 600}, {x: 400, y: 800}, {x: 0, y: 800}], color: "#fa8ecc"},
+            {p: [{x: 800, y: 400}, {x: 800, y: 800}, {x: 400, y: 800}], color: "#f6ca29"}
+        ];
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");  //获取绘图上下文环境
+
+        for (var i = 0; i < tangram.length; i++) {
+            draw(context, tangram[i]);
+        }
+
+        function draw(ctxt, piece) {
+            ctxt.beginPath();  //开始路径
+
+            ctxt.moveTo(piece.p[0].x, piece.p[0].y);  //canvas画笔移动到目标点
+            for (var i = 1; i < piece.p.length; i++) {
+                ctxt.lineTo(piece.p[i].x, piece.p[i].y);  //canvas画笔依次绘制路径点
+            }
+
+            ctxt.closePath();  //闭合路径
+            ctxt.fillStyle = piece.color; //填充颜色
+
+            ctxt.fill(); //图形的填充
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="550">
+	
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.translate(80,0);
+        context.strokeStyle="red";
+
+        //当做锚点
+        context.moveTo(150,20);
+        context.lineTo(150,500);
+        context.stroke();
+
+        context.font="25px Arial";
+
+        context.textAlign="start";//默认。 文本在指定的位置开始。
+        context.fillText("textAlign=start",150,80);
+
+        context.textAlign="end";//文本在指定的位置结束。
+        context.fillText("textAlign=end",150,180);
+
+        context.textAlign="left";//文本在指定的位置开始。
+        context.fillText("textAlign=left",150,280);
+
+        context.textAlign="center";//文本的中心被放置在指定的位置。
+        context.fillText("textAlign=center",150,380);
+
+        context.textAlign="right";//文本在指定的位置结束。
+        context.fillText("textAlign=right",150,480);
+    }
+</script>
+</body>
+</html>
+

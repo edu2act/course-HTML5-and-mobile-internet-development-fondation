@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid #aaa;
+            display: block;
+            margin: 50px auto;
+        }
+
+        input {
+            display: block;
+            margin: 20px auto;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="512" height="341"></canvas>
+	<input id="range" type="range" min="0.5" max="1.5" value="1" step="0.01"/>
+<script>
+    var range = document.getElementById("range");
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var slider = range.value;//获取滑动杆的值
+
+    var image = new Image();
+    image.src = "images/cake.jpg";
+    
+    image.onload = function () {
+        drawImageBySlider(slider);
+
+        range.onmousemove = function () {
+            slider = range.value;
+            drawImageBySlider(slider);
+        }
+    };
+
+    function drawImageBySlider(slider) {
+        var imageWidth = 512 * slider;
+        var imageHeight = 341 * slider;
+
+        var dx = canvas.width / 2 - imageWidth / 2;//图片中心在canvas中心点
+        var dy = canvas.height / 2 - imageHeight / 2;
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, dx, dy, imageWidth, imageHeight);
+    }
+</script>
+</body>
+</html>

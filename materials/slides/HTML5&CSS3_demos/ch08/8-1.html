@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FileList与file示例</title>
+	<link rel="icon" href="img/snowflake.png" />
+</head>
+<body>
+	<script>
+		function ShowFileName(){
+			var file;
+			var file1;
+			file1 = document.getElementById("file");
+			console.log(file1.files);
+			for(var i=0; i<file1.files.length; i++){
+				file = file1.files[i];
+				console.log(file);
+			}
+		}
+	</script>
+
+	<input type="file" id="file" multiple/>
+	<input type="button" value="文件上传" onclick="ShowFileName();"/>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="900">
+	
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+		context.translate(110,110);
+        var grd = context.createLinearGradient(0, 0, 200, 0);
+
+        grd.addColorStop(0, "black");// stop=0;代表x=0*200=0;
+        grd.addColorStop(0.3, "white");//stop=0.3;代表x=0.3*200=60; 
+        grd.addColorStop(0.5, "blue");
+        grd.addColorStop(0.6, "green");
+        grd.addColorStop(0.8, "yellow");
+        grd.addColorStop(1, "red");
+        context.fillStyle = grd;
+
+        context.fillRect(0, 0, 200, 100);
+        
+        context.strokeStyle = '#f00';
+        //0
+        context.beginPath();
+        context.moveTo(0, 105);
+        context.lineTo(0, 115);
+        context.stroke();
+        context.closePath();
+        //0.3
+        context.beginPath();
+        context.moveTo(60, 105);
+        context.lineTo(60, 115);
+        context.stroke();
+        context.closePath();
+        //0.5
+        context.beginPath();
+        context.moveTo(100, 105);
+        context.lineTo(100, 115);
+        context.stroke();
+        context.closePath();
+
+        //0.6
+        context.beginPath();
+        context.moveTo(120, 105);
+        context.lineTo(120, 115);
+        context.stroke();
+        context.closePath();
+
+        //0.8
+        context.beginPath();
+        context.moveTo(160, 105);
+        context.lineTo(160, 115);
+        context.stroke();
+        context.closePath();
+        //1
+        context.beginPath();
+        context.moveTo(200, 105);
+        context.lineTo(200, 115);
+        context.stroke();
+        context.closePath();
+    }
+</script>
+</body>
+</html>

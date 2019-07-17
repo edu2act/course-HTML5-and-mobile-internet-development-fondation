@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas1" width="800" height="800" style="border: 1px solid #aaa; display: block; margin:50px auto;">
+			
+		</canvas>
+		<script>
+			window.onload = function(){
+				var canvas1 = document.getElementById("canvas1");
+				var context1 = canvas1.getContext("2d");
+				
+				context1.lineWidth=10;
+
+				context1.beginPath();
+				for(i=0;i<5;i++){
+					context1.lineTo(Math.cos((18+72*i)/180*Math.PI)*200+400,
+					-Math.sin((18+72*i)/180*Math.PI)*200+400);
+					context1.lineTo(Math.cos((54+72*i)/180*Math.PI)*80+400,
+					-Math.sin((54+72*i)/180*Math.PI)*80+400);
+				}
+				context1.miterLimit = 5;
+				context1.closePath();
+				context1.fillStyle = "yellow";
+				context1.strokeStyle = "red";
+				context1.fill();
+				context1.stroke();
+			}
+		</script>
+	</body>
+</html>

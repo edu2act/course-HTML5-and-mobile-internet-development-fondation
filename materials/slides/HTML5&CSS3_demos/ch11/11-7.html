@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            margin: 50px 50px;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="500">
+	
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.arc(0, 0, 150, 0, 2 * Math.PI);
+        context.fillStyle="pink";
+        context.fill();
+
+        context.beginPath();
+        context.fillStyle="yellow";
+        context.fillRect(250, 0, 100, 50);
+
+        context.beginPath();
+        context.rotate(20/ 180 * Math.PI );//旋转20度
+        context.fillStyle="orange";
+        context.fillRect(250, 0, 100, 50);
+
+        context.beginPath();
+        context.rotate(20 / 180 * Math.PI);//旋转20度
+        context.fillStyle="purple";
+        context.fillRect(250, 0, 100, 50);
+
+        context.beginPath();
+        context.rotate(20 / 180 * Math.PI);//旋转20度
+        context.fillStyle="blue";
+        context.fillRect(250, 0, 100, 50);
+
+    }
+</Script>
+</body>
+</html>
+

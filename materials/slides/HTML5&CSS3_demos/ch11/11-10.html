@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="300" height="300">
+	</canvas>
+	<input type="button" value="绘制" onClick="ready()"/>
+<script>
+    function ready() {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        context.translate(160, 30);
+        context.fillStyle = 'rgba(120,93,222,0.25)';
+        context.fillRect(0, 0, 100, 50);
+
+        for (var i = 0; i < 50; i++) {
+            context.translate(25, 25);
+            context.scale(0.95, 0.95);
+            context.rotate(Math.PI / 10);//旋转。
+            context.fillRect(0, 0, 100, 50);
+        }
+    }
+</script>
+</body>
+</html>

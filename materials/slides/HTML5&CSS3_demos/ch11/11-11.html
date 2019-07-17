@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="1024" height="500">
+
+</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.font = "italic 35px 隶书";
+        context.fillStyle = "hotpink";
+        context.fillText("欢迎大家学习canvas", 30, 50, 200);
+
+        context.font = "bold 35px 宋体";
+        context.fillStyle = "Blue";
+        context.fillText("欢迎大家学习canvas", 30, 100);
+
+        context.font = "45px 幼圆";
+        context.fillStyle = "Green";
+        context.fillText("欢迎大家学习canvas", 30, 150);
+    }
+</Script>
+</body>
+</html>
+

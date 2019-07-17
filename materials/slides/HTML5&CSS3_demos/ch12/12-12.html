@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>像素处理</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="500"></canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    
+    //创建一个新的空的ImageData对象,data数组的长度为  100*100*4
+    var imgData = context.createImageData(100, 100);
+
+    //把 ImageData 对象中的第一个像素变为红色
+    imgData.data[0] = 255;//R
+    imgData.data[1] = 0;//G
+    imgData.data[2] = 0;//B
+    imgData.data[3] = 255;//A
+
+    //把 ImageData 对象中的第三个像素变为绿色
+    imgData.data[8] = 0;
+    imgData.data[9] = 255;
+    imgData.data[10] = 0;
+    imgData.data[11] = 255;
+
+    //把 ImageData 对象中的所有像素变为随机色
+    for (var i = 0; i < imgData.data.length; i += 4) {
+        imgData.data[i] = parseInt(Math.random() * 255);  // imgData.data[i]=255 红色
+        imgData.data[i + 1] = parseInt(Math.random() * 255);// imgData.data[i+1]=255 绿色
+        imgData.data[i + 2] = parseInt(Math.random() * 255);// imgData.data[i+2]=255 蓝色
+        imgData.data[i + 3] = 255;
+    }
+    context.putImageData(imgData, 10, 10);
+</script>
+
+</body>
+</html>

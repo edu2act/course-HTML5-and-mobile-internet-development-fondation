@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+            background: rgb(236, 238, 233);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas1" width="500" height="500">
+        你的浏览器不支持canvas
+    </canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas1");
+    var context = canvas.getContext("2d");
+
+    context.moveTo(0,0);
+    context.lineTo(100,100);
+    context.lineTo(200,0);
+    context.lineWidth=10;
+    context.strokeStyle="blue";
+    context.stroke();
+</script>
+</html>

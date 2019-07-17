@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+		canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="500">
+	
+	</canvas>
+<script>
+    window.onload = function() {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.font = "italic 35px 楷体";
+        context.fillStyle = "hotpink";
+        var txt = "河北师范大学";
+        context.fillText(txt, 10, 250);
+        
+        var width = context.measureText(txt).width;
+        context.fillText("width:" + width, 10, 300);
+
+    }
+</Script>
+</body>
+</html>
+

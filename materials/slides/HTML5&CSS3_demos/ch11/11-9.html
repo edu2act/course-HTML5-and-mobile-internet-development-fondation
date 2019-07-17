@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="900">
+
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.save(); //保存原始状态
+        context.scale(1,1);
+        context.strokeRect(50,50,200,200);
+        context.restore(); //恢复原始状态
+
+        context.scale(2,2);
+        context.strokeRect(50,50,200,200);
+
+        context.scale(3,3);
+        context.strokeRect(50,50,200,200);
+    }
+</Script>
+</body>
+</html>
+

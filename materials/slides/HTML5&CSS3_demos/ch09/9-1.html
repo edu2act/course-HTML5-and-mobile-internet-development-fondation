@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DataTransfer对象在拖拽事件中的输出</title>
+</head>
+<body>
+	<img src="images/cat.jpg">
+</body>
+<script>
+	document.addEventListener('dragstart', function (event) {
+		console.log('dragstart开始拖拽: ' + event.dataTransfer);	
+	});
+	document.addEventListener('dragenter', function (event) {
+		console.log('dragenter拖拽进入: ' + event.dataTransfer);	
+	});
+	document.addEventListener('dragleave', function (event) {
+		console.log('dragleave拖拽离开: ' + event.dataTransfer);	
+	});
+	document.addEventListener('dragover', function (event) {
+		event.preventDefault();
+		console.log('dragover拖拽经过: ' + event.dataTransfer);	
+	});
+	document.addEventListener('drop', function (event) {
+		console.log('drop拖拽释放: ' + event.dataTransfer);	
+	});
+	document.addEventListener('dragend', function (event) {
+		console.log('dragend拖放操作结束: ' + event.dataTransfer);	
+	});
+</script>
+</html>

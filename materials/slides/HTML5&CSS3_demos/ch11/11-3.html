@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="900">
+	
+	</canvas>
+	<script>
+	    window.onload = function () {
+	        var canvas = document.getElementById("canvas");
+	        var context = canvas.getContext("2d");
+	
+	        context.lineWidth=10;
+	        context.strokeStyle="red";
+	        context.lineJoin='miter';
+	
+	        context.miterLimit=5;//默认值为10
+	
+	        context.beginPath();
+	        context.moveTo(100,100);
+	        context.lineTo(250,150);
+	        context.lineTo(100,200);
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.moveTo(100,250);
+	        context.lineTo(250,280);
+	        context.lineTo(100,310);
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.moveTo(100,400);
+	        context.lineTo(250,410);
+	        context.lineTo(100,420);
+	        context.stroke();
+	    }
+	</script>
+</body>
+</html>

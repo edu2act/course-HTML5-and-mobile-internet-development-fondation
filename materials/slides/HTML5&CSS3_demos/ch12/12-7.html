@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="500">
+	
+	</canvas>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.translate(50,50);
+        context.globalCompositeOperation = "source-over";//在目标图像上显示源图像。
+
+        context.beginPath();
+        context.fillStyle = "red";
+        context.arc(150, 100, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "green";
+        context.arc(100, 200, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "blue";
+        context.arc(200, 200, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+
+        context.translate(320,0);
+        context.globalCompositeOperation = "lighter"; //显示源图像 + 目标图像。
+        context.beginPath();
+        context.fillStyle = "red";
+        context.arc(150, 100, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "green";
+        context.arc(100, 200, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "blue";
+        context.arc(200, 200, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+
+        context.translate(320,0);
+        context.globalCompositeOperation = "xor";//使用异或操作对源图像与目标图像进行组合。
+        context.beginPath();
+        context.fillStyle = "red";
+        context.arc(150, 100, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "green";
+        context.arc(100, 200, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "blue";
+        context.arc(200, 200, 100, 0, 2 * Math.PI);
+        context.fill();
+        context.closePath();
+    }
+</Script>
+</body>
+</html>

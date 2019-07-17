@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 2px solid black;
+            background-color: rgba(255, 10, 100, 0.3);
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var gco = ['source-over', 'source-atop', 'source-in', 'source-out',
+        'destination-over', 'destination-atop', 'destination-in', 'destination-out',
+        'lighter', 'copy', 'xor'];
+    var com = [
+        '默认。在目标图像上显示源图像。',
+        '在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。',
+        '在目标图像中显示源图像。只有目标图像之内的源图像部分会显示，目标图像是透明的。',
+        '在目标图像之外显示源图像。只有目标图像之外的源图像部分会显示，目标图像是透明的。',
+        '在源图像上显示目标图像。',
+        '在源图像顶部显示目标图像。目标图像位于源图像之外的部分是不可见的。',
+        '在源图像中显示目标图像。只有源图像之内的目标图像部分会被显示，源图像是透明的。',
+        '在源图像之外显示目标图像。只有源图像之外的目标图像部分会被显示，源图像是透明的。',
+        '显示源图像 + 目标图像。' + '</br>' +
+        '这个值与顺序无关，如果源与目标重叠，就将两者的颜色值相加。得到的颜色值的最大取值为255，结果就为白色。',
+        '显示源图像。忽略目标图像。' + '</br>' + '这个值与顺序无关，只绘制源，覆盖掉目标。',
+        '使用异或操作对源图像与目标图像进行组合。' + '</br>' + '这个值与顺序无关，只绘制出不重叠的源与目标区域。所有重叠的部分都变成透明的。'
+    ];
+    for (var i = 0; i < gco.length; i++) {
+        var canvas = document.createElement('canvas');
+        context = canvas.getContext('2d');
+        context.fillStyle = "red";
+        context.fillRect(20, 20, 150, 80);//目标图像
+        //设置 目标图像和源图像的显示 情况。
+        context.globalCompositeOperation = gco[i];
+        context.fillStyle = "white";
+        context.arc(170, 100, 40, 0, 2 * Math.PI);//源图像
+        context.fill();
+        var div = document.createElement('div');
+        div.innerHTML = gco[i] + ':  ' + com[i];
+        div.appendChild(canvas);
+        document.body.appendChild(div)
+    }
+</script>
+</body>
+</html>

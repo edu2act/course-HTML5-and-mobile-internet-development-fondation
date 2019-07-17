@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="img/snowflake.png" />
+    <title>百度地图应用</title>
+    <style>
+        #div1 {
+            width: 1000px;
+            height: 600px;
+            border: 1px #000 solid;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="请求" id="input" />
+    <div id="div1"></div>
+    <script src="http://api.map.baidu.com/api?v=3.0&ak=PlhFWpA02aoURjAOpnWcRGqw7AI8EEyO"></script>
+    <script>
+        window.onload = function() {
+            var oInput = document.getElementById('input');
+
+            oInput.onclick = function() {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var y = position.coords.longitude;
+                    var x = position.coords.latitude;
+
+                    // 1创建地图
+                    var map = new BMap.Map("div1");  // 创建Map实例
+                    var pt = new BMap.Point(y, x);
+                    map.centerAndZoom(pt, 14);  // 初始化地图,设置中心点坐标和地图级别
+                    map.enableScrollWheelZoom();  // 开启鼠标滚轮缩放
+
+                    // 2创建标注
+                    /* var myIcon = new BMap.Icon("logo.png", new BMap.Size(48, 48));
+                    var marker2 = new BMap.Marker(pt, {
+                        icon: myIcon
+                    }); // 创建标注 
+                    map.addOverlay(marker2); //添加标注 */
+
+                    // 3创建信息窗口
+                    /* var opts = {
+                        width: 200, // 信息窗口宽度
+                        height: 60, // 信息窗口高度
+                        title: "软件学院" // 信息窗口标题
+                    }
+                    var infoWindow = new BMap.InfoWindow("河北师范大学", opts); // 创建信息窗口对象
+                    map.openInfoWindow(infoWindow, pt); //开启信息窗口 */ 
+                });
+            };
+        };
+    </script>
+</body>
+</html>

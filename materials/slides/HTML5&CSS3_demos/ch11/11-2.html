@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="900">
+	
+	</canvas>
+	<script>
+	    window.onload = function () {
+	        var canvas = document.getElementById("canvas");
+	        var context = canvas.getContext("2d");
+	
+	        context.lineWidth=10;
+	        context.strokeStyle="red";
+	
+	        context.beginPath();
+	        context.lineJoin='bevel';//创建斜角。
+	        context.moveTo(100,100);
+	        context.lineTo(250,150);
+	        context.lineTo(100,200);
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.lineJoin='round';//创建圆角。
+	        context.moveTo(100,250);
+	        context.lineTo(250,300);
+	        context.lineTo(100,350);
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.lineJoin='miter';//默认。创建尖角。
+	        context.moveTo(100,400);
+	        context.lineTo(250,450);
+	        context.lineTo(100,500);
+	        context.stroke();
+	
+	        context.lineWidth=2;
+	        context.strokeStyle="black";
+	        context.beginPath();
+	        context.moveTo(250,50);
+	        context.lineTo(250,600);
+	        context.stroke();	
+	    }
+	</script>
+</body>
+</html>

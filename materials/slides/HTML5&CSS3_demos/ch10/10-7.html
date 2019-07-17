@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="600" height="600"></canvas>
+	<script>
+	    //创建绘图容器
+	    var canvas = document.getElementById("canvas");
+	    var context = canvas.getContext("2d");
+	
+	    //状态设置
+		context.beginPath();
+	    context.moveTo(100, 100);
+	    context.lineTo(100, 400);
+	    context.lineTo(400, 400);
+	    context.lineTo(100, 100);
+	
+	    context.lineWidth = 5;
+	    context.strokeStyle = "red";
+		context.closePath();
+	    context.stroke();
+		
+		context.beginPath();
+	    context.moveTo(200, 100);
+	    context.lineTo(500, 400);
+	    context.strokeStyle = "blue";
+		context.closePath();
+	    context.stroke();
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+	<canvas id="canvas" width="1024" height="600">
+	
+	</canvas>
+	<script>
+	    window.onload = function () {
+	        var canvas = document.getElementById("canvas");
+	        var context = canvas.getContext("2d");
+	
+	        context.lineWidth=20;
+	
+	        context.beginPath();
+	        context.strokeStyle = "#982E4B";
+	        context.moveTo(100,100);
+	        context.lineTo(700,100);
+	        context.lineCap = "butt";
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.strokeStyle = "#0088CC";
+	        context.moveTo(100,300);
+	        context.lineTo(700,300);
+	        context.lineCap = "round";
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.strokeStyle = "#F4C63F";
+	        context.moveTo(100,500);
+	        context.lineTo(700,500);
+	        context.lineCap = "square";
+	        context.stroke();
+	
+	        context.beginPath();
+	        context.lineWidth = 1;
+	        context.strokeStyle="black";
+	        context.moveTo(100,50);
+	        context.lineTo(100,550);
+	        context.moveTo(700,50);
+	        context.lineTo(700,550);
+	        context.stroke();	
+	    }
+	</script>
+</body>
+</html>
