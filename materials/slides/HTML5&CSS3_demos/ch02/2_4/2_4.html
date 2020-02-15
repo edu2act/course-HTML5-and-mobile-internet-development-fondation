@@ -5,30 +5,36 @@
 	<meta charset="utf-8"/>
 	<link rel="icon" href="../img/snowflake.png" />
 	<script>
-	function play(){
-		var playbutton = document.getElementById('playaudio');
-		var pausebutton = document.getElementById('pauseaudio');
-		var audio = document.getElementById('audios');
-		audio.play();
-		playbutton.disabled = true;	
-		pausebutton.disabled = false;
-		
-	}
-	function pause(){
-		var audio = document.getElementById('audios');
-		var playbutton = document.getElementById('playaudio');
-		var pausebutton = document.getElementById('pauseaudio');
-		pausebutton.disabled = true;
-		playbutton.disabled = false;
-		audio.pause();
-	}
+		// 播放
+		function play(){
+			var playbutton = document.getElementById('playaudio');
+			var pausebutton = document.getElementById('pauseaudio');
+			var audio = document.getElementById('audios');
+			audio.play();
+			playbutton.disabled = true;	
+			pausebutton.disabled = false;	
+		}
+		// 暂停
+		function pause(){
+			var audio = document.getElementById("audios");
+			var playbutton = document.getElementById('playaudio');
+			var pausebutton = document.getElementById('pauseaudio');
+			audio.pause();
+			playbutton.disabled = false;
+			pausebutton.disabled = true;
+		}
+		function foward(){
+			var audio = document.getElementById("audios");
+			audio.currentTime +=10;
+		}
 	</script>
 </head>
 <body >
-	<audio src="01.mp3" id="audios">
+	<audio src="01.mp3" id="audios" controls>
 		您的浏览器不支持Audio标签
 	</audio>
 	<input type='button' value="播放" id="playaudio"  onclick = "play()" />
 	<input type="button" value="暂停" id="pauseaudio" disabled="disabled"  onclick = "pause()" />
+	<button id="foward" onclick="foward()">快进</button>
 </body>
 </html>
